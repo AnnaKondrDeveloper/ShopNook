@@ -7,15 +7,13 @@ export function Items(props) {
 
   return (
 	 <main className='items'>
-		{props.state.map ( i => {
+		{props.state.map ( item => {
 			return (
 				<Item 
-					key = {i.id}
-					title = {i.title}
-					img ={ i.img}
-					descr = { i.descr}
-					category = { i.category }
-					price = { i.price }
+					key = {item.id}
+					item = {item}
+					orders = {props.orders} 
+					addOrder = {props.addOrder}
 				/>
 			)
 		})}

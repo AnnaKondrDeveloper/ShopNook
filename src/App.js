@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -72,12 +73,20 @@ function App() {
 		}
 	]
 
+	const [ orders, setOrders] = useState([]);
 
+	function addOrder(item) {
+		setOrders([item, ...orders])
+	} 
 
   return (
     <div className='container'>
-		<Header/>
-		<Items state = {initState}/>
+		<Header orders={orders}/>
+		<Items 
+			state = {initState} 
+			orders = {orders} 
+			addOrder = {addOrder}
+			/>
 		<Footer/>
     </div>
   );
