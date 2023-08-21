@@ -3,7 +3,6 @@ import { Item } from './Item'
 
 export function Items(props) {
 
-	
 
   return (
 	 <main className='items'>

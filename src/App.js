@@ -79,9 +79,15 @@ function App() {
 		setOrders([item, ...orders])
 	} 
 
+	function deleteOrder(orderId) {
+		let filteredOrders = orders.filter( i => i.id !== orderId);
+		setOrders(filteredOrders);
+	}
+
   return (
     <div className='container'>
-		<Header orders={orders}/>
+		<Header orders={orders} 
+				  deleteOrder = {deleteOrder}/>
 		<Items 
 			state = {initState} 
 			orders = {orders} 

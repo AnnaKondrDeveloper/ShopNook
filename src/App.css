@@ -255,7 +255,7 @@ main {
 }
 
 .order {
-	padding: 10px 20px;
+	padding: 10px 30px;
 	width: 100%;
 	float: left;
 }
@@ -270,11 +270,26 @@ main {
 .order_title {
 	font-weight: 700;
 	font-size: 18px;
+	color: #797979
 }
 .order_price {
 	margin-top: 10px;
 	font-weight: 500;
 	font-size: 16px;
+}
+
+.order_delete_button {
+	color: #ca5252;
+	float: right;
+	position: relative;
+	top: -20px;
+	cursor: pointer;
+	transition: transform 0.5s ease;
+}
+
+.order_delete_button:hover {
+	color: #dc0707;
+	transform: scale(1.5);
 }
 
 footer {

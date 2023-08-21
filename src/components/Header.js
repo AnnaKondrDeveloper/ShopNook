@@ -12,6 +12,7 @@ export default function Header(props) {
 		return <Order 
 					key ={order.id}
 					order = {order}
+					deleteOrder = {props.deleteOrder}
 				/>
 	})
 	)
