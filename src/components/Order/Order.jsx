@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaTrash } from 'react-icons/fa'
+import "./Order.css";
 
 export function Order(props) {
   return (
