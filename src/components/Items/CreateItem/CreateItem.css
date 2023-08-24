@@ -17,7 +17,8 @@
 	width: 100%;
 }
 
-.new_item input {
+.new_item_input {
+	margin-bottom: 5px;
 	height: 50px;
 	padding: 0 20px;
 	border-radius: 5px;
@@ -28,12 +29,13 @@
 	color: #000;
 }
 
-.new_item input:focus{
+.new_item_input:focus{
 	box-shadow: 0 0 20px rgba(231, 226, 220, 0.732);
 	background-color: silver;
 }
 
-.new_item textarea {
+.new_item_textarea {
+	margin-bottom: 5px;
 	resize: none;
 	height: 100px;
 	padding: 5px 20px;
@@ -74,7 +76,7 @@
 	letter-spacing: 2px;
 	text-transform: uppercase;
 	color:#fff;
-	background: #dc3d3d;
+	background: #ca5252;
 	border-radius: 10px;
 	transition: all 0.5s ease;
 }

@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Item } from "./Item/Item";
 import "./Items.css";
 import CreateItem from "./CreateItem/CreateItem";
 
 export function Items(props) {
+
+	const [ editMode, setEditMode ] = useState(false);
+
   return (
     <main className="main">
       <div className="main_filters">
@@ -29,14 +32,20 @@ export function Items(props) {
 				}}
 			> Tables </button>
 			</div>
-			<div className="switch">
-				<input type="checkbox"></input>
+			<label className="switch">
+				<input type="checkbox" 
+				checked={editMode} 
+				onChange={() => {
+					setEditMode(!editMode); 
+					console.log(editMode)
+					}}/>
 				<span className="slider"></span>
-			</div>
+			</label>
       </div>
-		<div className="main_new">
-			<CreateItem />
+		{editMode && <div className="main_new">
+			 <CreateItem addItem={props.addItem}/>
 		</div>
+		}
       <div className="main_items">
         {props.state.map((item) => {
           return (
@@ -45,6 +54,8 @@ export function Items(props) {
               item={item}
               orders={props.orders}
               addOrder={props.addOrder}
+				  deleteItem={props.deleteItem}
+				  editMode={editMode}
             />
           );
         })}
