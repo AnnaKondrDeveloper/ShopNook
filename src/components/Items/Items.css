@@ -36,7 +36,6 @@ main {
 .main_new {
 	margin: 50px auto;
 	padding: 20px;
-	height: 500px;
 	border: 	1px solid silver;
 	border-radius: 10px;
 }

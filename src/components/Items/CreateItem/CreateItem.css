@@ -1,16 +1,22 @@
 .new_item {
-	height: 100%;
-	width: 100%;
+	padding: 10px;
+	width: 350px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 	align-items: center;
 }
 
 .new_title {
 	font-weight: 500;
-	margin: 15px 20px;
+	text-align: center;
 	font-size: 22px;
+	margin-bottom: 15px;
+}
+
+.form_error {
+	padding-left: 10px;
+	height: 15px;
+	color: red
 }
 
 .new_item div {
@@ -68,9 +74,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 20px;
 	width: 100%;
-	min-height: 60px;
+	min-height: 40px;
 	font-size: 18px;
 	font-weight: 700;
 	letter-spacing: 2px;

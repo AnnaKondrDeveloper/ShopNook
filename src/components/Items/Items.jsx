@@ -37,7 +37,6 @@ export function Items(props) {
 				checked={editMode} 
 				onChange={() => {
 					setEditMode(!editMode); 
-					console.log(editMode)
 					}}/>
 				<span className="slider"></span>
 			</label>
