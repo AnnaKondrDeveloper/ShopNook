@@ -5,7 +5,7 @@ import CreateItem from "./CreateItem/CreateItem";
 
 export function Items(props) {
 
-	const [ editMode, setEditMode ] = useState(false);
+	const [ adminMode, setAdminMode ] = useState(false);
 
   return (
     <main className="main">
@@ -34,14 +34,14 @@ export function Items(props) {
 			</div>
 			<label className="switch">
 				<input type="checkbox" 
-				checked={editMode} 
+				checked={adminMode} 
 				onChange={() => {
-					setEditMode(!editMode); 
+					setAdminMode(!adminMode); 
 					}}/>
 				<span className="slider"></span>
 			</label>
       </div>
-		{editMode && <div className="main_new">
+		{adminMode && <div className="main_new">
 			 <CreateItem addItem={props.addItem}/>
 		</div>
 		}
@@ -54,7 +54,8 @@ export function Items(props) {
               orders={props.orders}
               addOrder={props.addOrder}
 				  deleteItem={props.deleteItem}
-				  editMode={editMode}
+				  adminMode={adminMode}
+				  editItem={props.editItem}
             />
           );
         })}

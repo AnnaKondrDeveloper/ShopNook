@@ -20,7 +20,7 @@ function App() {
     {
       id: v1(),
       title: "Wood table",
-      img_url: "https://lh3.googleusercontent.com/Bl2-nW-Xbm_vlH3Ln1VbqdFTkxPkWjD7EeystziVaC4e7zapByPvjG0Xlcx5gGE13Rqpmz47MbvJCDa5s7CBBm5D0EUiibxGf3uVxU8x",
+      img_url: "https://fioronidesign.it/Thumbs/nwix_636273493543949373_fioroni_Piazzalunga_000.jpg",
       descr:
         "Gather around the beautifully crafted wooden table, where rustic simplicity meets modern design, creating the perfect centerpiece for memorable moments.",
       category: "tables",
@@ -38,7 +38,7 @@ function App() {
     {
       id: v1(),
       title: "Bill sofa",
-      img_url: "https://lh3.googleusercontent.com/X8hgVgiz31llYxNC9tovp74alF50qmMM96S1JqOzID3dxvs8c9q6fnWf4mUyzT405_HYJkCrfxHet6tgvGpC4vNbYGf-nnFlPYyRo7RNbA",
+      img_url: "https://img.archiexpo.com/images_ae/photo-g/66059-12715154.webp",
       descr:
         "Immerse yourself in tranquil serenity within this minimalist bedroom adorned with warm textures and soft hues.",
       category: "sofas",
@@ -65,7 +65,7 @@ function App() {
     {
       id: v1(),
       title: "Leather chair",
-      img_url: "https://lh3.googleusercontent.com/ds61mtUDplOMEsk4nZo6_-QSS8xKznYT0MflZ8T4bm7MPIWFx4CwkJ4SYlitpSmlwgyUlY13j2QTezwRXD0CBSICOi_ksxiGJy5n9ww",
+      img_url: "https://skontliving.com/cdn/shop/products/product-image-1682934470.jpg?v=1652616296&width=800",
       descr:
         "The unique harmony of natural leather with wood is the right choice for those who want to create an original and masculine style in their living space",
       category: "chairs",
@@ -123,6 +123,17 @@ function App() {
 	setCurrentItems(filteredItems);
   }
 
+  function editItem(id, img_url, title, descr, category, price) {
+	const currentItem = items.find(i => i.id === id);
+		currentItem.img_url = img_url;
+		currentItem.title = title;
+		currentItem.descr = descr;
+		currentItem.category = category;
+		currentItem.price = price;
+		setItems([...items]);
+		setCurrentItems([...currentItems]);
+  }
+
   return (
     <div className="container">
       <Header orders={orders} deleteOrder={deleteOrder} />
@@ -133,6 +144,7 @@ function App() {
         changeFilter={changeFilter}
 		  addItem={addItem}
 		  deleteItem={deleteItem}
+		  editItem={editItem}
       />
       <Footer />
     </div>

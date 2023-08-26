@@ -18,7 +18,7 @@ const onSubmit= (data) => {
 
   return (
 	 <div className='new_item'>
-		<h2 className='new_title'> Add new item</h2>
+		<h2 className='new_title'>Add new item</h2>
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<input 
 					{...register("img_url", {
@@ -51,11 +51,11 @@ const onSubmit= (data) => {
 						className='new_item_input'
 						type="text"
 						>
-				<option defaultValue="">Choose category</option>
-				<option defaultValue="chairs">Chairs</option>
-				<option defaultValue="sofas">Sofas</option>
-				<option defaultValue="tables">Tables</option>
-				<option defaultValue="lights">Lights</option>
+				<option value="">Choose category</option>
+				<option value="chairs">Chairs</option>
+				<option value="sofas">Sofas</option>
+				<option value="tables">Tables</option>
+				<option value="lights">Lights</option>
 			</select>
 			<div className="form_error">{errors?.category && <p>{errors?.category?.message || "Error"}</p>}</div>
 			<input 	{...register("price", {
@@ -66,7 +66,7 @@ const onSubmit= (data) => {
 						type="number" 
 			/>
 			<div className="form_error">{errors?.price && <p>{errors?.price?.message || "Error"}</p>}</div>
-		<input type="submit" className='new_item_button' />
+		<input type="submit" className='new_item_button'/>
 		</form>
 	 </div>
   )
