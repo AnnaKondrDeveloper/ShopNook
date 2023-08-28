@@ -18,19 +18,19 @@
 }
 
 .item_title {
+	margin: 20px 15px 0 15px;
 	font-weight: 500;
-	margin: 15px 20px;
 	font-size: 22px;
 }
 
 .item_descr {
-	margin: 10px 20px;
+	margin: 20px 20px 0 20px;
 	min-height: 70px;
 }
 
 .item_price {
+	margin: 20px 20px 0 20px;
 	font-weight: 700;
-	margin: 10px 20px;
 	font-size: 18px;
 	color: #5fa36a
 }
@@ -54,4 +54,36 @@
 
 .item_button_add:hover {
 	transform: scale(1.3) translateY(-5px);
+}
+
+.item_delete_icon {
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	font-size: 30px;
+	z-index: 3;
+	transition: color 0.5s ease;
+}
+
+.item_delete_icon:hover {
+	color: #ca5252;
+}
+
+.active {
+	color: #dc3d3d;
+	opacity: 1;
+	transform: scale(1.3);
+}
+
+.item_edit_icon {
+	position: absolute;
+	left: 15px;
+	top: 15px;
+	font-size: 30px;
+	z-index: 3;
+	transition: color 0.5s ease;
+}
+
+.item_edit_icon:hover {
+	color: #ca5252;
 }

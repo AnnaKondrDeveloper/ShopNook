@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { Item } from "./Item/Item";
 import "./Items.css";
-import CreateItem from "./CreateItem/CreateItem";
+import EditItemForm from "./EditItemForm/EditItemForm";
 
 export function Items(props) {
 
 	const [ adminMode, setAdminMode ] = useState(false);
+
+	function editItem(img_url, title, descr, category, price) {
+		props.addItem(img_url, title, descr, category, price);
+
+	}
 
   return (
     <main className="main">
@@ -42,7 +47,8 @@ export function Items(props) {
 			</label>
       </div>
 		{adminMode && <div className="main_new">
-			 <CreateItem addItem={props.addItem}/>
+		<h2 className='main_new_title'>Add new item</h2>
+			<EditItemForm editItem={editItem} item={"item"}/>
 		</div>
 		}
       <div className="main_items">
