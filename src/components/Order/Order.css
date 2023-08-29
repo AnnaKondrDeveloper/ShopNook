@@ -1,10 +1,19 @@
 .order {
-	padding: 10px 30px;
+	padding: 10px 20px;
 	width: 100%;
 	float: left;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
-.order img{
+.order_item {
+	width: 55%;
+	display: flex;
+}
+
+.order_img {
+	display: block;
 	width: 70px;
 	height: 70px;
 	float: left;
@@ -13,20 +22,45 @@
 
 .order_title {
 	font-weight: 700;
-	font-size: 18px;
-	color: #797979
+	font-size: 16px;
+	color: #797979;
 }
 .order_price {
+	width: 75px;
 	margin-top: 10px;
 	font-weight: 500;
 	font-size: 16px;
+	text-align: center;
 }
 
+.order_count {
+	display: flex;
+	align-items: center;
+}
+
+.order_count_input {
+	width: 30px;
+	margin-right: 5px;
+	background-color: transparent;
+	text-align: center;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 1.3;
+ }
+ 
+ .order_count_input::-webkit-inner-spin-button,
+ .order_count_input::-webkit-outer-spin-button {
+	appearance: none;
+ }
+ 
+ .order_count_controls {
+	display: flex;
+	flex-direction: column;
+	row-gap: 9px;
+ }
+ 
 .order_delete_button {
 	color: #ca5252;
-	float: right;
-	position: relative;
-	top: -20px;
 	cursor: pointer;
 	transition: transform 0.5s ease;
 }

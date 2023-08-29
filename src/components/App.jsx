@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./App.css";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import { Items } from "./components/Items/Items";
+import Footer from "./Footer/Footer";
+import Header from "./Header/Header";
+import { Items } from "./Items/Items";
 import { v1 } from 'uuid';
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
         "The upholstery of the chair is made of wear-resistant velour, which will last you a long time and is easy to care for. The sturdy supports are made of solid birch.",
       category: "chairs",
       price: "1150",
+		count: 1,
     },
     {
       id: v1(),
@@ -25,6 +26,7 @@ function App() {
         "Gather around the beautifully crafted wooden table, where rustic simplicity meets modern design, creating the perfect centerpiece for memorable moments.",
       category: "tables",
       price: "1350",
+		count: 1,
     },
     {
       id: v1(),
@@ -34,6 +36,7 @@ function App() {
         "Minimalistic modern pendant chandelier with adjustable brightness, ring-shaped lamps.",
       category: "lights",
       price: "1100",
+		count: 1,
     },
     {
       id: v1(),
@@ -43,6 +46,7 @@ function App() {
         "Immerse yourself in tranquil serenity within this minimalist bedroom adorned with warm textures and soft hues.",
       category: "sofas",
       price: "12250",
+		count: 1,
     },
     {
       id: v1(),
@@ -52,6 +56,7 @@ function App() {
         "Illuminate your Nordic home with a captivating glass ball and brass crystal pendant lamp, complemented by an integrated LED wall moon lamp for a touch of modern sophistication.",
       category: "lights",
       price: "920",
+		count: 1,
     },
     {
       id: v1(),
@@ -61,6 +66,7 @@ function App() {
         "Explore rustic elegance with this intricately designed bedroom featuring a weathered wood accent wall and a cozy, neutral-toned bedding ensemble.",
       category: "sofas",
       price: "11050",
+		count: 1,
     },
     {
       id: v1(),
@@ -70,6 +76,7 @@ function App() {
         "The unique harmony of natural leather with wood is the right choice for those who want to create an original and masculine style in their living space",
       category: "chairs",
       price: "1170",
+		count: 1,
     },
     {
       id: v1(),
@@ -79,6 +86,7 @@ function App() {
         "Embrace the fusion of industrial and rustic aesthetics with this captivating table featuring a reclaimed wood top and sturdy metal framework",
       category: "tables",
       price: "1270",
+		count: 1,
     },
   ];
 
@@ -89,6 +97,15 @@ function App() {
   function addOrder(item) {
     setOrders([item, ...orders]);
   }
+
+  function plusOneOrder(id) {
+		const foundedOrder = orders.find(item => (item.id === id)); 
+		if( foundedOrder) {
+			foundedOrder.count++;
+			setOrders( [...orders ])
+		}
+
+	}
 
   function deleteOrder(orderId) {
     const filteredOrders = orders.filter((i) => i.id !== orderId);
@@ -140,6 +157,7 @@ function App() {
       <Items
         state={currentItems}
         orders={orders}
+		  plusOneOrder={plusOneOrder}
         addOrder={addOrder}
         changeFilter={changeFilter}
 		  addItem={addItem}

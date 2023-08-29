@@ -26,9 +26,9 @@ export function Item(props) {
 					? (
 						<div>
 							<img src={props.item.img_url} alt={props.item.category}></img>
-							<EditItemForm item = {props.item} 
-										  editItem={editItem}
-										  />
+							<EditItemForm  item = {props.item} 
+												editItem={editItem}
+												/>
 						</div>
 
 					)
@@ -39,7 +39,7 @@ export function Item(props) {
 		: (
 			<div>
 				<ItemCard item={props.item}/>
-				<div className = "item_button_add" onClick={() => {props.addOrder(props.item);
+				<div className = "item_button_add" onClick={() => {props.addOrder(props.item); props.plusOneOrder(props.item.id)
 				}}> + </div>
 			</div>
 			)

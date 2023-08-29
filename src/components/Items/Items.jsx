@@ -59,6 +59,7 @@ export function Items(props) {
               item={item}
               orders={props.orders}
               addOrder={props.addOrder}
+				  plusOneOrder={props.plusOneOrder}
 				  deleteItem={props.deleteItem}
 				  adminMode={adminMode}
 				  editItem={props.editItem}

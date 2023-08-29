@@ -9,7 +9,7 @@ export default function Header(props) {
   function showOrder() {
     return props.orders.map((order) => {
       return (
-        <Order key={order.id} order={order} deleteOrder={props.deleteOrder} />
+        <Order key={order.id} order={order} deleteOrder={props.deleteOrder}/>
       );
     });
   }
@@ -21,8 +21,8 @@ export default function Header(props) {
         <ul className="menu">
           <li>
             <FaShoppingCart
-              onClick={() => setCartOpen(!cartOpen)}
-              className={`menu_cart_button ${cartOpen && "active"}`}
+              onClick={() => setCartOpen( !cartOpen )}
+              className={`menu_cart_button ${ cartOpen && "active"}`}
             />
           </li>
           <li>About us</li>

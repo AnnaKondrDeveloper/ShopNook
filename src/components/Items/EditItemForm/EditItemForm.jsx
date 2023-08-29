@@ -66,6 +66,7 @@ const onSubmit= (data) => {
 				className='item_price edit' 
 				placeholder='$ Price'
 				type="number"
+				min="1"
 				defaultValue={props.item.price} 
 	/>
 	<div className="form_error">{errors?.price && <p>{errors?.price?.message || "Error"}</p>}</div>
