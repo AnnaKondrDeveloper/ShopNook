@@ -17,6 +17,7 @@ function App() {
       category: "chairs",
       price: "1150",
 		count: 1,
+		totalPrice: "1150"
     },
     {
       id: v1(),
@@ -27,6 +28,7 @@ function App() {
       category: "tables",
       price: "1350",
 		count: 1,
+		totalPrice: "1350",
     },
     {
       id: v1(),
@@ -37,6 +39,7 @@ function App() {
       category: "lights",
       price: "1100",
 		count: 1,
+		totalPrice: "1100",
     },
     {
       id: v1(),
@@ -47,6 +50,7 @@ function App() {
       category: "sofas",
       price: "12250",
 		count: 1,
+		totalPrice: "12250"
     },
     {
       id: v1(),
@@ -57,6 +61,7 @@ function App() {
       category: "lights",
       price: "920",
 		count: 1,
+		totalPrice: "920"
     },
     {
       id: v1(),
@@ -67,6 +72,7 @@ function App() {
       category: "sofas",
       price: "11050",
 		count: 1,
+		totalPrice: "11050"
     },
     {
       id: v1(),
@@ -77,6 +83,7 @@ function App() {
       category: "chairs",
       price: "1170",
 		count: 1,
+		totalPrice: "1170"
     },
     {
       id: v1(),
@@ -87,6 +94,7 @@ function App() {
       category: "tables",
       price: "1270",
 		count: 1,
+		totalPrice: "1270"
     },
   ];
 
@@ -104,7 +112,6 @@ function App() {
 			foundedOrder.count++;
 			setOrders( [...orders ])
 		}
-
 	}
 
   function deleteOrder(orderId) {
@@ -151,9 +158,27 @@ function App() {
 		setCurrentItems([...currentItems]);
   }
 
+  function increaseCount(id) {
+	const foundedOrder = orders.find(item => (item.id === id)); 
+	if( foundedOrder) {
+		foundedOrder.count++;
+		foundedOrder.totalPrice = foundedOrder.price * foundedOrder.count
+		setOrders( [...orders ])
+	}
+  }
+
+  function decreaseCount(id) {
+	const foundedOrder = orders.find(item => (item.id === id)); 
+	if( foundedOrder.count > 1) {
+		foundedOrder.count--;
+		foundedOrder.totalPrice = foundedOrder.price * foundedOrder.count
+		setOrders( [...orders ])
+	}
+  }
+
   return (
     <div className="container">
-      <Header orders={orders} deleteOrder={deleteOrder} />
+      <Header orders={orders} deleteOrder={deleteOrder} increaseCount={increaseCount} decreaseCount={decreaseCount}/>
       <Items
         state={currentItems}
         orders={orders}

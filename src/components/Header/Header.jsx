@@ -3,13 +3,13 @@ import { FaShoppingCart, FaBoxOpen } from "react-icons/fa";
 import { Order } from "../Order/Order";
 import "./Header.css";
 
-export default function Header(props) {
+export default function Header({orders, deleteOrder, increaseCount, decreaseCount}) {
   const [cartOpen, setCartOpen] = useState(false);
 
   function showOrder() {
-    return props.orders.map((order) => {
+    return orders.map((order) => {
       return (
-        <Order key={order.id} order={order} deleteOrder={props.deleteOrder}/>
+        <Order key={order.id} order={order} deleteOrder={deleteOrder} increaseCount={increaseCount} decreaseCount={decreaseCount}/>
       );
     });
   }
@@ -31,7 +31,7 @@ export default function Header(props) {
         </ul>
         {cartOpen && (
           <div className="menu_cart">
-            {props.orders.length > 0 ? (
+            {orders.length > 0 ? (
               showOrder()
             ) : (
               <div className="menu_cart_empty">

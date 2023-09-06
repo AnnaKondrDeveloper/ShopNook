@@ -4,7 +4,9 @@
 	color: #333;
 	overflow: hidden;
 	padding-bottom: 20px;
+	border-radius: 10px 10px 0 0;
 }
+
 
 .item img {
 	height: 350px;

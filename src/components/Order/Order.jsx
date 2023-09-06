@@ -2,11 +2,9 @@ import React from "react"
 import { FaTrash } from "react-icons/fa"
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io"
 
-
-
 import "./Order.css";
 
-export function Order({order, deleteOrder}) {
+export function Order({order, deleteOrder, increaseCount, decreaseCount}) {
   return (
 	 <div className="order">
 	 	<div className="order_item">
@@ -16,11 +14,11 @@ export function Order({order, deleteOrder}) {
 		<div className="order_count">
 			<div className="order_count_input">{order.count}</div>
 			<div className="order_count_controls">
-				<IoIosArrowUp className="order_count_up"/>
-				<IoIosArrowDown className="order_count_down"/>
+				<IoIosArrowUp className="order_count_up" onClick={() => increaseCount(order.id)}/>
+				<IoIosArrowDown className="order_count_down" onClick={() => decreaseCount(order.id)}/>
 			</div>
 		</div>
-		<p className="order_price">${order.price}</p>
+		<p className="order_price">${order.totalPrice}</p>
 		<FaTrash onClick={() => deleteOrder(order.id)} className="order_delete_button"/>
 	 </div>
   )
