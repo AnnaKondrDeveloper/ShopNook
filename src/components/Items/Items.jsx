@@ -3,12 +3,12 @@ import { Item } from "./Item/Item";
 import "./Items.css";
 import EditItemForm from "./EditItemForm/EditItemForm";
 
-export function Items(props) {
+export function Items({addItem, state, orders, addOrder, plusOneOrder, deleteItem, changeFilter}) {
 
 	const [ adminMode, setAdminMode ] = useState(false);
 
 	function editItem(img_url, title, descr, category, price) {
-		props.addItem(img_url, title, descr, category, price);
+		addItem(img_url, title, descr, category, price);
 
 	}
 
@@ -17,23 +17,23 @@ export function Items(props) {
       <div className="main_filters">
 			<div>
 				<button className="main_filter" onClick={() => {
-					props.changeFilter("all");
+					changeFilter("all");
 				}}
 			> All</button>
 			<button className="main_filter" onClick={() => {
-					props.changeFilter("chairs");
+					changeFilter("chairs");
 				}}
 			> Chairs </button>
 			<button className="main_filter" onClick={() => {
-					props.changeFilter("sofas");
+					changeFilter("sofas");
 				}}
 			> Sofas </button>
 			<button className="main_filter" onClick={() => {
-					props.changeFilter("lights");
+					changeFilter("lights");
 				}}
 			> Lights </button>
 			<button className="main_filter" onClick={() => {
-					props.changeFilter("tables");
+					changeFilter("tables");
 				}}
 			> Tables </button>
 			</div>
@@ -52,17 +52,17 @@ export function Items(props) {
 		</div>
 		}
       <div className="main_items">
-        {props.state.map((item) => {
+        {state.map((item) => {
           return (
             <Item
               key={item.id}
               item={item}
-              orders={props.orders}
-              addOrder={props.addOrder}
-				  plusOneOrder={props.plusOneOrder}
-				  deleteItem={props.deleteItem}
+              orders={orders}
+              addOrder={addOrder}
+				  plusOneOrder={plusOneOrder}
+				  deleteItem={deleteItem}
 				  adminMode={adminMode}
-				  editItem={props.editItem}
+				  editItem={editItem}
             />
           );
         })}
