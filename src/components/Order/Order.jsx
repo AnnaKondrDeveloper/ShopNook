@@ -4,7 +4,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io"
 
 import "./Order.css";
 
-export function Order({order, deleteOrder, increaseCount, decreaseCount}) {
+export function Order({order, deleteOrder, increaseOrderCount, decreaseOrderCount}) {
   return (
 	 <div className="order">
 	 	<div className="order_item">
@@ -14,8 +14,8 @@ export function Order({order, deleteOrder, increaseCount, decreaseCount}) {
 		<div className="order_count">
 			<div className="order_count_input">{order.count}</div>
 			<div className="order_count_controls">
-				<IoIosArrowUp className="order_count_up" onClick={() => increaseCount(order.id)}/>
-				<IoIosArrowDown className="order_count_down" onClick={() => decreaseCount(order.id)}/>
+				<IoIosArrowUp className="order_count_up" onClick={() => increaseOrderCount(order.id)}/>
+				<IoIosArrowDown className="order_count_down" onClick={() => decreaseOrderCount(order.id)}/>
 			</div>
 		</div>
 		<p className="order_price">${order.totalPrice}</p>

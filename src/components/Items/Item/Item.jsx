@@ -5,7 +5,7 @@ import ItemCard from './ItemCard/ItemCard';
 import EditItemForm from '../EditItemForm/EditItemForm';
 
 
-export function Item({editItem, item, adminMode, deleteItem, addOrder, plusOneOrder}) {
+export function Item({editItem, item, adminMode, deleteItem, addOrder, increaseOrderCount}) {
 	
 	const [ editMode, setEditMode ] = useState(false);
 
@@ -39,7 +39,7 @@ export function Item({editItem, item, adminMode, deleteItem, addOrder, plusOneOr
 		: (
 			<div>
 				<ItemCard item={item}/>
-				<div className = "item_button_add" onClick={() => {addOrder(item); plusOneOrder(item.id)
+				<div className = "item_button_add" onClick={() => {addOrder(item); increaseOrderCount(item.id)
 				}}> + </div>
 			</div>
 			)

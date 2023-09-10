@@ -3,7 +3,7 @@ import { Item } from "./Item/Item";
 import "./Items.css";
 import EditItemForm from "./EditItemForm/EditItemForm";
 
-export function Items({addItem, state, orders, addOrder, plusOneOrder, deleteItem, changeFilter}) {
+export function Items({addItem, state, orders, addOrder, increaseOrderCount, deleteItem, changeFilter}) {
 
 	const [ adminMode, setAdminMode ] = useState(false);
 
@@ -59,7 +59,7 @@ export function Items({addItem, state, orders, addOrder, plusOneOrder, deleteIte
               item={item}
               orders={orders}
               addOrder={addOrder}
-				  plusOneOrder={plusOneOrder}
+				  increaseOrderCount={increaseOrderCount} 
 				  deleteItem={deleteItem}
 				  adminMode={adminMode}
 				  editItem={editItem}
