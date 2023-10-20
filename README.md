@@ -1,6 +1,6 @@
 # ShopNook
 
-This web application was crafted with a passion for design and a hunger for mastering React and Hooks. ShopNook is a web application that I created to learn React and Hooks. It serves as a minimalist furniture store, built with:
+This web application was crafted with a passion for design and a hunger for mastering React and Hooks. <br> It serves as a minimalist furniture store, built with:
 
 - ReactJS
 - JavaScript
