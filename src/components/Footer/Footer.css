@@ -2,3 +2,25 @@ footer {
 	text-align: center;
 	margin-top: 100px;
 }
+
+.footer_button {
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+	display: block;
+	color: black;
+	border-radius: 15px;
+	border: 1px solid black;
+	padding: 10px;
+	width: 250px;
+	font-size: 18px;
+	transition: all ease 0.3s;
+}
+
+.footer_button:hover {
+	background-color: #f2f2f2;
+}
+
+.footer_text {
+	margin-top: 50px;
+}
