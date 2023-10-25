@@ -9,7 +9,6 @@ export function Items({addItem, state, orders, addOrder, increaseOrderCount, del
 
 	function editItem(img_url, title, descr, category, price) {
 		addItem(img_url, title, descr, category, price);
-
 	}
 
   return (
