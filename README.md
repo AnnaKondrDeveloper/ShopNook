@@ -37,6 +37,10 @@ Get ready to have fun! You can go into edit mode using the switcher. When you ac
 
 ![mode-image](https://github.com/AnnaKondrDeveloper/ShopNook/assets/85047120/c3d7ea99-0474-4049-bc20-2c9d0d7aa7c4)
 
+### Save, Edit, and Delete Items
+
+Shop Nook empowers you to manage your inventory effortlessly. You can save, edit, or delete items with ease. The Firebase integration ensures your changes are securely stored and instantly accessible.
+
 ## Check out the Application
 
 Find the application running at [https://store.annaprodev.com](https://store.annaprodev.com).
