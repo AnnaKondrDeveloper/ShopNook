@@ -5,13 +5,12 @@ import ItemCard from './ItemCard/ItemCard';
 import EditItemForm from '../EditItemForm/EditItemForm';
 
 
-export function Item({editItem, item, adminMode, deleteItem, addOrder, increaseOrderCount}) {
+export function Item({editExistingItem, item, adminMode, deleteItem, addOrder, increaseOrderCount}) {
 	
 	const [ editMode, setEditMode ] = useState(false);
 
 	function editItemForm(img_url, title, descr, category, price){
-		editItem(item.id, img_url, title, descr, category, price);
-		console.log(item.id)
+		editExistingItem(item.id, img_url, title, descr, category, price);
 		setEditMode(false)
 	}
 

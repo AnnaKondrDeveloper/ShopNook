@@ -3,11 +3,15 @@ import { Item } from "./Item/Item";
 import "./Items.css";
 import EditItemForm from "./EditItemForm/EditItemForm";
 
-export function Items({addItem, state, orders, addOrder, increaseOrderCount, deleteItem, changeFilter}) {
+export function Items({addItem, state, orders, addOrder, increaseOrderCount, deleteItem, changeFilter, editItem}) {
 
 	const [ adminMode, setAdminMode ] = useState(false);
 
-	function editItem(img_url, title, descr, category, price) {
+	function editExistingItem(id, img_url, title, descr, category, price) {
+		editItem(id, img_url, title, descr, category, price);
+	}
+	
+	function createNewItem(img_url, title, descr, category, price) {
 		addItem(img_url, title, descr, category, price);
 	}
 
@@ -47,7 +51,9 @@ export function Items({addItem, state, orders, addOrder, increaseOrderCount, del
       </div>
 		{adminMode && <div className="main_new">
 		<h2 className='main_new_title'>Add new item</h2>
-			<EditItemForm editItem={editItem} item={"item"}/>
+			<EditItemForm 
+				editItem={createNewItem} 
+				item={"item"}/>
 		</div>
 		}
       <div className="main_items">
@@ -61,7 +67,7 @@ export function Items({addItem, state, orders, addOrder, increaseOrderCount, del
 				  increaseOrderCount={increaseOrderCount} 
 				  deleteItem={deleteItem}
 				  adminMode={adminMode}
-				  editItem={editItem}
+				  editExistingItem={editExistingItem}
             />
           );
         })}

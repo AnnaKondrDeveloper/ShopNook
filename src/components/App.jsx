@@ -1,13 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
 import { Items } from "./Items/Items";
-import { v1 } from 'uuid';
 
 
 import { initializeApp } from "firebase/app";
-import {  collection, deleteDoc, doc, getDocs, getFirestore, setDoc } from "firebase/firestore";
+import {  addDoc, collection, deleteDoc, doc, getDocs, getFirestore, updateDoc } from "firebase/firestore";
 
 
 const firebaseConfig = {
@@ -24,13 +23,32 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const itemsList = collection(db, 'items');
-const itemSnapshot = await getDocs(itemsList);
-const itemList = itemSnapshot.docs.map(i => i.data());
-console.log(itemList, itemList.id)
-
 
 function App() {
+
+	const [ items, setItems] = useState([]);
+	const [ currentItems, setCurrentItems ] = useState(items);
+
+
+	const itemsCollectionRef = collection(db, 'items');
+	const getItems = async () => {
+		try {
+			const data = await getDocs(itemsCollectionRef);
+			const filteredData = data.docs.map(( doc ) => ({
+				...doc.data(),
+				id: doc.id,
+			}));
+			setItems(filteredData);
+			setCurrentItems(filteredData);
+		} catch (err) {
+			console.error(err)
+		}
+	};
+
+	useEffect(() => {	
+			getItems();
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	},[]);
 
 
 //   const initState = [
@@ -43,10 +61,9 @@ function App() {
 //       category: "chairs",
 //       price: "1150",
 // 		count: 1,
-// 		totalPrice: "1150"
+// 		totalPrice: "totalPrice"
 //     },
 //     {
-//       id: v1(),
 //       title: "Wood table",
 //       img_url: "https://fioronidesign.it/Thumbs/nwix_636273493543949373_fioroni_Piazzalunga_000.jpg",
 //       descr:
@@ -124,8 +141,7 @@ function App() {
 //     },
 //   ];
 
-  const [ items, setItems] = useState(itemList)
-  const [ currentItems, setCurrentItems ] = useState(items);
+ 
   const [ orders, setOrders ] = useState([]);
 
   function addOrder(item) {
@@ -147,44 +163,46 @@ function App() {
   }
 
   async function addItem(img, title, descr, category, price) {
-	const newItem = await setDoc(doc(db, 'items', v1()), {
-		id: v1(),
+	try {
+		await addDoc(itemsCollectionRef, {
+		img_url: img,
       title: title,
-      img_url: img,
       descr: descr,
       category: category,
       price: price,
 		count: 1,
-		totalPrice: price
+		totalPrice: price,
     });
-	 setItems([newItem, ...items]);
-	 setCurrentItems([ newItem, ...items]);
+	} catch(err) {
+		console.error(err)
+	}
+	getItems();
   }
 
   async function deleteItem(id) {
-
-	
-
-	// const cityRef = doc(db, 'items', id);
-
-	// console.log(cityRef)
-	// // console.log(id)
-	// const filteredItems = items.filter(i => i.id !== id);
-	// // console.log(filteredItems)
-	await deleteDoc(doc(db, "items", id));
-	// setItems(filteredItems);
-	// setCurrentItems(filteredItems);
+	try {
+		await deleteDoc(doc(db, "items", id));
+	} catch(err) {
+		console.error(err)
+	}
+	getItems();
   }
 
-  function editItem(id, img_url, title, descr, category, price) {
-	const currentItem = items.find(i => i.id === id);
-		currentItem.img_url = img_url;
-		currentItem.title = title;
-		currentItem.descr = descr;
-		currentItem.category = category;
-		currentItem.price = price;
-		setItems([...items]);
-		setCurrentItems([...currentItems]);
+  async function editItem(id, img, title, descr, category, price) {
+	const itemDoc = doc(db, "items", id);
+	try {
+		await updateDoc(itemDoc, {
+		img_url: img,
+		title: title,
+		descr: descr,
+		category: category,
+		price: price,
+		totalPrice: price,
+		})
+	} catch(err) {
+		console.error(err)
+	}
+	getItems();
   }
 
   function increaseOrderCount(id) {
