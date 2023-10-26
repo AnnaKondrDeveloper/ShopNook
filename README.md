@@ -3,6 +3,7 @@
 This web application was crafted with a passion for design and a hunger for mastering React and Hooks. <br> It serves as a minimalist furniture store, built with:
 
 - ReactJS
+- Firebase
 - JavaScript
 - CSS
 - HTML
