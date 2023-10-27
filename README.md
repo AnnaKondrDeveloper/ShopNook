@@ -3,6 +3,7 @@
 This web application was crafted with a passion for design and a hunger for mastering React and Hooks. <br> It serves as a minimalist furniture store, built with:
 
 - ReactJS
+- Firebase
 - JavaScript
 - CSS
 - HTML
@@ -35,6 +36,10 @@ Explore the versatility of ShopNook! You can now sort products by category, maki
 Get ready to have fun! You can go into edit mode using the switcher. When you activate this mode, you can make new products, change existing ones, or get rid of them. You're in charge! Easily add, edit, or remove products with a snap. I used the useForm hook to make it all work smoothly.
 
 ![mode-image](https://github.com/AnnaKondrDeveloper/ShopNook/assets/85047120/c3d7ea99-0474-4049-bc20-2c9d0d7aa7c4)
+
+### Save, Edit, and Delete Items
+
+Shop Nook empowers you to manage your inventory effortlessly. You can save, edit, or delete items with ease. The Firebase integration ensures your changes are securely stored and instantly accessible.
 
 ## Check out the Application
 
