@@ -1,0 +1,42 @@
+[debug] [2023-10-26T17:36:32.122Z] ----------------------------------------------------------------------
+[debug] [2023-10-26T17:36:32.124Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\78607\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-10-26T17:36:32.124Z] CLI Version:   12.7.0
+[debug] [2023-10-26T17:36:32.125Z] Platform:      win32
+[debug] [2023-10-26T17:36:32.125Z] Node Version:  v16.16.0
+[debug] [2023-10-26T17:36:32.126Z] Time:          Thu Oct 26 2023 13:36:32 GMT-0400 (Восточная Америка, летнее время)
+[debug] [2023-10-26T17:36:32.126Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-26T17:36:32.129Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-10-26T17:36:32.215Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-26T17:36:32.215Z] > authorizing via signed-in user (9132543@gmail.com)
+[debug] [2023-10-26T17:36:32.216Z] [iam] checking project shopnook-react for permissions ["firebase.projects.get","firebasedatabase.instances.update"]
+[debug] [2023-10-26T17:36:32.217Z] > refreshing access token with scopes: []
+[debug] [2023-10-26T17:36:32.218Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-10-26T17:36:32.218Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-10-26T17:36:32.388Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-10-26T17:36:32.388Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2023-10-26T17:36:32.425Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-10-26T17:36:32.426Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-10-26T17:36:32.435Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/shopnook-react:testIamPermissions [none]
+[debug] [2023-10-26T17:36:32.435Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/shopnook-react:testIamPermissions x-goog-quota-user=projects/shopnook-react
+[debug] [2023-10-26T17:36:32.436Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/shopnook-react:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update"]}
+[debug] [2023-10-26T17:36:32.645Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/shopnook-react:testIamPermissions 200
+[debug] [2023-10-26T17:36:32.645Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/shopnook-react:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update"]}
+[debug] [2023-10-26T17:36:32.646Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/shopnook-react [none]
+[debug] [2023-10-26T17:36:33.015Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/shopnook-react 200
+[debug] [2023-10-26T17:36:33.015Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/shopnook-react {"projectId":"shopnook-react","projectNumber":"972340074239","displayName":"ShopNook-React","name":"projects/shopnook-react","resources":{"hostingSite":"shopnook-react","realtimeDatabaseInstance":"shopnook-react-default-rtdb","storageBucket":"shopnook-react.appspot.com","locationId":"us-central"},"state":"DELETED","etag":"1_32bb31ff-fc9e-4d1a-a58c-78ad5891927c"}
+[info] 
+[info] === Deploying to 'shopnook-react'...
+[info] 
+[info] i  deploying database 
+[info] i  database: checking rules syntax... 
+[debug] [2023-10-26T17:36:33.022Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/shopnook-react/locations/-/instances/shopnook-react-default-rtdb [none]
+[debug] [2023-10-26T17:36:33.431Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/shopnook-react/locations/-/instances/shopnook-react-default-rtdb 404
+[debug] [2023-10-26T17:36:33.431Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/shopnook-react/locations/-/instances/shopnook-react-default-rtdb {"error":{"code":404,"message":"Project has been deleted.","status":"NOT_FOUND"}}
+[debug] [2023-10-26T17:36:33.434Z] HTTP Error: 404, Project has been deleted.
+[debug] [2023-10-26T17:36:33.554Z] FirebaseError: HTTP Error: 404, Project has been deleted.
+    at responseToError (C:\Users\78607\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\78607\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:285:77)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get instance details for instance: shopnook-react-default-rtdb. See firebase-debug.log for more details.

@@ -93,3 +93,46 @@
 	font-size: 30px;
 	color: #ffff
 }
+
+@media (max-width: 920.98px) {
+	.container{
+		padding: 30px 10px;
+	}
+	.header_menu{
+		display: block;
+	}
+	.menu {
+		margin-top: 20px;
+	}
+	.main-background {
+		margin-top: 30px;
+	}
+ }
+
+ @media (max-width: 570.98px) {
+	.menu li{
+		display: block;
+		margin-top: 15px;
+		font-size: 15px;
+	}
+	
+	.menu_cart {
+		width: 100%;
+		top: 80px;
+	}
+	.menu_cart_button:hover {
+		color:#000;
+	}
+	.header_menu {
+		padding: 0;
+	}
+	.header_title{
+		padding-left: 15px ;
+		width: 100%;
+	}
+	.header_subtitle{
+		padding-left: 15px ;
+		font-size: 24px;
+		width: 100%;
+	}
+ }
